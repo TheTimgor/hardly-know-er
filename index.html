@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>browser? i hardly know er!</title>
+    <style type="text/css">
+      p {
+        font-family: sans-serif;
+        margin-top: calc(50vh - 1.5em);
+        text-align: center;
+        font-weight: 500;
+        font-size: 3em;
+      }
+      p:hover {
+        transition: 0.1s;
+        font-size: 3.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var node = document.createElement("P");
+      document.body.appendChild(node);
+      function update(argument) {
+        fetch("er_words.txt").then(r => r.text()).then(t => {
+          let words = t.split("\n");
+          let word = words[Math.floor(Math.random()*words.length)];
+          node.innerText = word.toLowerCase() + "? i hardly know er!";
+        })
+      }
+      node.onclick = update;
+      update();
+    </script>
+  </body>
+</html>
